@@ -1,0 +1,386 @@
+p {
+  color: #333333;
+  line-height: 1.6;
+}
+
+#aside-block {
+  font-style: italic;
+  padding: 15px;
+  background-color: rgb(240, 240, 240);
+  overflow: hidden;
+}
+
+.tasks-heading {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+a[target] {
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+a[href*='google'] {
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: lightgreen;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: hsl(210, 100%, 30%);
+}
+
+.tasks-list li {
+  list-style-type: square;
+  font-family: 'Verdana', sans-serif;
+}
+
+article + p {
+  margin-top: 20px;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}
+
+/*
+=====================================================================
+1. Головна сторінка (index.html)
+=====================================================================
+*/
+
+/* Color Palette */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #88bbde;
+  --accent-color: #f2867b;
+  --background-light: #ecf0f1;
+  --text-dark: #2c3e50;
+  --text-light: #ffffff;
+  --success-color: #74d99e;
+  --warning-color: #f4db78;
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400,700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .startup-name {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary-color);
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.navigation {
+  padding: 12px;
+  padding-top: 100px;
+  margin: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+}
+
+.navigation a {
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color:hsla(210, 100%, 70%, 0.5);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-areas:
+    "about aside"
+    "founders aside"
+    "links links";
+  gap: 20px;
+}
+
+.main-section { grid-area: about; }
+#aside-block { grid-area: aside; }
+.founders-info { grid-area: founders; }
+.main-content > p { grid-area: links; }
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.founders-info {
+  position: relative;
+  padding: 20px;
+  margin-top: 32px;
+  float: none;
+  width: 60%;
+}
+
+.main-section {
+  padding: 12px;
+  margin: 0;
+  overflow: auto;
+}
+
+#aside-block {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  font-family: 'Roboto Slab', serif;
+  border: 1px solid transparent;
+  transform: scale(1);
+  transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+#aside-block:hover {
+  background-color: #ffcc00;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01) rotate(1deg);
+  border-color: #ff9900;
+}
+
+.main-content {
+  max-height: 100%;
+  min-width: none;
+  clear: both;
+  overflow: auto;
+}
+
+.links-info {
+  grid-area: links;
+  margin-left: 12px;
+}
+
+.founders-info:hover,
+.founders-info:focus {
+  transform: translateX(2%);
+  transition: transform 0.3s ease-in-out;
+  outline: none;
+}
+
+.contacts-info {
+  position: relative;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  margin-left: 12px;
+  background-color: var(--text-light);
+  color: var(--text-light);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.text-contacts {
+  outline: none;
+}
+
+.text-contacts::selection {
+  background-color: rgba(255, 153, 0, 0.35);
+}
+
+@keyframes emphasizeAfterDelay {
+  0% { background-color: transparent; font-size: 100%; font-weight: normal; }
+  100% { background-color: rgba(255, 153, 0, 0.7); font-size: 110%; font-weight: bold; }
+}
+
+.text-contacts:focus {
+  animation: emphasizeAfterDelay 2s steps(1, end) both;
+}
+
+.hi-tech-emoji {
+  font-size: 2em;
+  margin-top: 15px;
+}
+
+#aside-block {
+  float: none;
+  max-width: 100%;
+  margin: 0 10px;
+}
+
+.tasks-list > li {
+  padding-left: 8px;
+}
+
+.main-section ~ #aside-block {
+  border-left: 3px solid #eee;
+}
+
+#register {
+  margin-left: 12px;
+}
+
+#register button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#register button:hover {
+  background-color: var(--secondary-color);
+}
+
+/*
+=====================================================================
+2. Сторінка «Проєкти» (projects.html)
+=====================================================================
+*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.grid-container > h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 10px 0;
+}
+
+.grid-container > a {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+
+.project-item {
+  border: medium solid darkblue;
+  border-bottom: 5px double darkblue;
+  padding: 15px;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(145deg, white, var(--background-light));
+}
+
+.project-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.project-title {
+  font-weight: 900;
+  font-size: 1.5em;
+  font-style: italic;
+  color: navy;
+  margin: 0 0 8px 0;
+  color: var(--secondary-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.project-image {
+  filter: grayscale(0);
+  transition: filter 0.5s ease, transform 0.25s ease;
+  border-radius: 6px;
+  display: block;
+}
+
+.project-image:hover {
+  filter: grayscale(100%);
+  transform: scale(1.02);
+}
+
+a:link {
+  color: darkorange;
+}
+
+a:visited {
+  color: deepskyblue;
+}
+
+/*
+=====================================================================
+3. Сторінка «Зворотний зв’язок» (feedback.html)
+=====================================================================
+*/
+
+.flex-form-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.flex-fieldset {
+  flex-basis: 45%;
+  flex-grow: 1;
+  order: 1;
+  padding: 15px;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  border-color: var(--secondary-color);
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px dashed #aaa;
+  flex-basis: 100%;
+}
+
+.input-field {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: flex-end;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-color);
+}

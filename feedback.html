@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Зворотний зв’язок - Nova Sync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1><img src="../public/images/startup-logo.png" alt="Логотип" width="50"> Nova Sync</h1>
+  </header>
+
+  <main>
+    <h2>Форма зворотного зв’язку</h2>
+    <form class="flex-form-container">
+      <fieldset class="flex-fieldset">
+        <legend>Персональна інформація</legend>
+
+        <label>Прізвище та ім’я: <input type="text" name="fullname" class="input-field" required></label>
+        <label>Email: <input type="email" name="email" class="input-field"></label>
+        <label>Вік: <input type="number" name="age" class="input-field" min="0" max="100" required></label>
+
+        <div class="radio-group">
+          <p>Освіта:</p>
+          <label><input type="radio" name="education" value="повна" class="form-radio"> Повна</label>
+          <label><input type="radio" name="education" value="неповна" class="form-radio"> Неповна</label>
+          <label><input type="radio" name="education" value="вища" class="form-radio"> Вища</label>
+          <label><input type="radio" name="education" value="професійна" class="form-radio"> Професійна</label>
+        </div>
+
+        <div class="checkbox-group">
+          <p>Інтереси:</p>
+          <label><input type="checkbox" name="interest" value="науковець"> Науковець</label>
+          <label><input type="checkbox" name="interest" value="інвестор"> Інвестор</label>
+          <label><input type="checkbox" name="interest" value="промоутер"> Промоутер</label>
+          <label><input type="checkbox" name="interest" value="держслужбовець"> Держслужбовець</label>
+        </div>
+
+      </fieldset>
+
+      <div class="form-control" style="order: 2;">
+        <p>Мета звернення:</p>
+        <select name="purpose" class="input-field">
+          <option value="питання">Питання</option>
+          <option value="пропозиція">Пропозиція</option>
+          <option value="скарга">Скарга</option>
+          <option value="помилка">Повідомити про помилку</option>
+        </select>
+      </div>
+
+      <div class="form-control" style="order: 3; flex-grow: 2;">
+        <label>Детально:<br>
+          <textarea name="details" rows="8" cols="40" maxlength="1000" class="input-field" style="resize: none;"></textarea>
+        </label>
+      </div>
+
+      <div class="form-control" style="order: 4; align-self: flex-start;">
+        <label><input type="checkbox" name="agree"> Погоджуюсь на обробку даних</label>
+      </div>
+
+      <button type="submit" style="order: 5;">Надіслати</button>
+    </form>
+  </main>
+</body>
+</html>
