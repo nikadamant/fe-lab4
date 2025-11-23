@@ -13,8 +13,13 @@
 <body>
   <header>
     <section class="logo-block">
-      <img src="../public/images/startup-logo.png" alt="Логотип" width="100">
-      <h1 class="startup-name"> Nova Sync</h1>
+      <div class="title-container">
+        <div class="logo-container">
+          <img src="../public/images/startup-logo.png" alt="Логотип" width="100"><h1 class="startup-name"> Nova Sync</h1></img>
+          
+        </div>
+        <p id="motto-text" class="motto-text"></p>
+      </div>
     </section>
     <nav class="navigation">
         <a href="projects.html">Проєкти</a>
@@ -42,6 +47,9 @@
 
     <section id="founders" class="founders-info">
       <h2>Засновники</h2>
+      <div class="founder-image-container">
+        <img id="founder-image" src="../public/images/startup-logo.png" alt="Засновник" width="150" style="cursor: pointer; border-radius: 8px; margin-bottom: 20px;">
+      </div>
       <table border="1" class="founders-table">
         <thead>
           <tr>
@@ -97,5 +105,20 @@
     <button>Перейти у власний кабінет</button>
     <button>Зареєструватися</button>
   </div>
+
+  <!-- Modal для загадки -->
+  <div id="riddle-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Загадка від засновника</h3>
+      <p id="riddle-text">Якщо ти мене розгадаєш, то дізнаєшся секрет успіху!</p>
+      <p><strong>Загадка:</strong> Що завжди йде вперед, але ніколи не повертається назад?</p>
+      <input type="text" id="riddle-answer" placeholder="Введіть відповідь...">
+      <button id="check-answer-btn">Перевірити</button>
+      <p id="riddle-result"></p>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
 </body>
 </html>

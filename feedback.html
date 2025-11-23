@@ -48,10 +48,11 @@
         </select>
       </div>
 
-      <div class="form-control" style="order: 3; flex-grow: 2;">
+      <div class="form-control tooltip-container" style="order: 3; flex-grow: 2;">
         <label>Детально:<br>
-          <textarea name="details" rows="8" cols="40" maxlength="1000" class="input-field" style="resize: none;"></textarea>
+          <textarea id="details-field" name="details" rows="8" cols="40" maxlength="1000" class="input-field" style="resize: none;"></textarea>
         </label>
+        <span class="tooltip" id="details-tooltip">Вдячні за Ваш час! Конкретизуйте мету звернення, будь ласка</span>
       </div>
 
       <div class="form-control" style="order: 4; align-self: flex-start;">
@@ -61,5 +62,6 @@
       <button type="submit" style="order: 5;">Надіслати</button>
     </form>
   </main>
+  <script src="js/feedback.js"></script>
 </body>
 </html>

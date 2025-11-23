@@ -12,6 +12,24 @@
 
   <main class="grid-container">
     <h2>Наші проєкти</h2>
+    
+    <!-- Карусель зображень -->
+    <div class="carousel-container">
+      <button class="carousel-button prev" id="prevBtn">&#10094;</button>
+      <div class="carousel-wrapper">
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="carousel-slide">
+            <img src="../public/images/project-1.png" alt="Проєкт 1">
+          </div>
+          <div class="carousel-slide">
+            <img src="../public/images/project-2.png" alt="Проєкт 2">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-button next" id="nextBtn">&#10095;</button>
+      <div class="carousel-indicators" id="carouselIndicators"></div>
+    </div>
+    
     <ul>
       <li class="project-item">
         <h3 class="project-title">AI Helper</h3>
@@ -41,5 +59,6 @@
 
     <a href="index.html">Повернутися на головну</a>
   </main>
+  <script src="js/projects.js"></script>
 </body>
 </html>

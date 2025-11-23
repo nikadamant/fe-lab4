@@ -77,22 +77,46 @@ h1, h2, h3, .startup-name {
 
 .logo-block {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 32px;
   position: absolute;
   top: 0;
   z-index: 100;
   background-color: white;
-  padding: 0;
+  padding: 15px 0;
   margin: 0;
   width: 100%;
+  min-height: 60px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  padding-top: 10px;
+}
+
+.motto-text {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 30px;
+  text-align: center;
 }
 
 .navigation {
+  position: relative;
   padding: 12px;
-  padding-top: 100px;
-  margin: 12px;
+  padding-top: 20px;
+  margin: 200px 12px 12px 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,13 +289,22 @@ h1, h2, h3, .startup-name {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 40px;
   margin-top: 100px;
 }
 
 .grid-container > h2 {
   grid-column: 1 / -1;
   margin: 0 0 10px 0;
+}
+
+.grid-container > .carousel-container {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+}
+
+.grid-container > ul {
+  grid-column: 1 / -1;
 }
 
 .grid-container > a {
@@ -282,6 +315,8 @@ h1, h2, h3, .startup-name {
 
 
 .project-item {
+  margin: 0 auto;
+  max-width: 800px;
   border: medium solid darkblue;
   border-bottom: 5px double darkblue;
   padding: 15px;
@@ -299,6 +334,7 @@ h1, h2, h3, .startup-name {
 }
 
 .project-title {
+  text-align: center;
   font-weight: 900;
   font-size: 1.5em;
   font-style: italic;
@@ -309,6 +345,7 @@ h1, h2, h3, .startup-name {
 }
 
 .project-image {
+  margin: 0 auto;
   filter: grayscale(0);
   transition: filter 0.5s ease, transform 0.25s ease;
   border-radius: 6px;
@@ -383,4 +420,215 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: var(--primary-color);
+}
+
+/*
+=====================================================================
+4. Модальне вікно для загадки
+=====================================================================
+*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+}
+
+#riddle-answer {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#check-answer-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#check-answer-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+#riddle-result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.founder-image-container {
+  margin-bottom: 20px;
+}
+
+/*
+=====================================================================
+5. Карусель на сторінці Проєкти
+=====================================================================
+*/
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 20vw; /* 20% від ширини вікна */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicator.active {
+  background-color: var(--primary-color);
+}
+
+/*
+=====================================================================
+6. Tooltip для поля Детально
+=====================================================================
+*/
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-container label {
+  position: relative;
+  display: block;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  white-space: normal;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+
+.details-field-hover {
+  background-color: #f0f8ff !important;
+  border: 2px solid var(--secondary-color) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease;
 }
